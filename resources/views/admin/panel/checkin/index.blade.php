@@ -140,8 +140,6 @@
       </div>
       <div class="block-content">
 
-        <form action="/" method="post">
-          @csrf
           <div class="row mb-3">
             <div class="col">
               <div class="input-group">
@@ -163,37 +161,15 @@
             </div>
           </div> 
           </div>
-            
-          <div class="d-flex justify-content-between mb-4" id="place-list"></div>
-    
 
-          <div class="row" style="margin: 4rem 172px 1rem 172px; ">
-            <div class="col">
-             <div class="d-grid">
-                <button class="btn btn-dark" type="submit">Check In</button>
-             </div>
-            </div>
-          </div>
-        </form>
-
-        {{-- <form action="/" action="get">
-           <div class="row mb-3">
-            <div class="col">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search Location..." name="search" id="search-input">
-                <button class="btn btn-outline-secondary" type="submit" id="btn-search"><i
-                    class="fa fa-fw fa-search"></i></button>
-              </div>
-              <div class="message">
-                
-              </div>
+          <form method="POST" id="update">
+            @csrf
+            @method('put')
+            <div class="row" id="binding">
               
             </div>
-        </div>
-        </form> --}}
+          </form>
      
-
-
 
       </div>
     </div>
@@ -208,7 +184,7 @@
 
 <script src="{{ asset('assets/js/plugins/flatpickr/flatpickr.min.js') }}"></script>
 <script src="{{ asset('assets/js/plugins/select2/js/select2.full.min.js') }}"></script>
-{{-- <script src="{{ asset('assets/js/search-location.js') }}"></script> --}}
+<script src="{{ asset('assets/js/search-location.js') }}"></script>
 <script src="{{ asset('')}}assets/js/plugins/datedropper/datedropper.js"></script>
 
 

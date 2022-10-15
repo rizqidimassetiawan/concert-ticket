@@ -1,9 +1,11 @@
 <?php
 
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\BookingController;
-use App\Http\Controllers\UniversalController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\RegionController;
+use App\Http\Controllers\BookingController;
+use App\Http\Controllers\VisitorsController;
+use App\Http\Controllers\UniversalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,17 +18,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[BookingController::class,'index'])->name('home');
 Route::middleware('guest')->group(function(){
     Route::controller(AuthController::class)->group(function(){
         Route::get('/admin','index')->name('login');
         Route::post('/login','authentication')->name('auth');
+    
+    Route::get('/',[BookingController::class,'index'])->name('home');   
     });
 });
 Route::middleware('auth')->group(function(){
+   Route::resource('/visitor',VisitorsController::class); 
    Route::get('/dashboard',[UniversalController::class,'dashboard'])->name('dashboard'); 
    Route::get('/check-in',[UniversalController::class,'checkIn'])->name('checkIn'); 
-   Route::get('/search',[UniversalController::class,'search'])->name('search'); 
-    
+   Route::put('/check-in/verify/{id}',[UniversalController::class,'verify'])->name('verify'); 
+   Route::get('/visitor',[UniversalController::class,'search'])->name('search'); 
    Route::post('/logout',[AuthController::class,'logout'])->name('logout');
 });
+
+    Route::controller(RegionController::class)->group(function(){
+        Route::get('/provinces','selectProvince');
+        Route::get('/regencies','selectRegency');
+        Route::get('/districts','selectDistrict');
+        Route::get('/villages','selectVillage');
+    });

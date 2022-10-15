@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Visitors;
 use Illuminate\Http\Request;
+use Illuminate\Support\Js;
 
 class UniversalController extends Controller
 {
@@ -35,10 +36,17 @@ class UniversalController extends Controller
 
     public function search()
     {
-            if(request('search')){
-            $data = Visitors::where('no_ticket',request('search'))->first();
-            return response()->json($data);
-        }
-        
+        $data = Visitors::where('no_ticket',request('search'))->first();
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+
+    public function verify($id)
+    {
+        $data = Visitors::find($id);
+        $data->status = 1;
+        $data->update();
+        return back()->with('toast_success', 'Konfirmasi Berhasil Dilakukan');
     }
 }

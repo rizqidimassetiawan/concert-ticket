@@ -77,6 +77,7 @@
                                 <th class="text-center">Nomer Tiket</th>
                                 <th class="text-center">Band</th>
                                 <th class="text-center">status</th>
+                                <th class="text-center">action</th>
                             </tr>
                         </thead>
 
@@ -98,6 +99,18 @@
                                     @elseif( $visitor->status == '0')
                                     <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-warning-light text-warning">Pending</span>
                                     @endif
+                                </td>
+                                <td class="text-center">
+                                    <div class="btn-group" role="group" aria-label="Horizontal Outline Secondary">
+                                        <a href="/visitor/{{ $visitor->id }}/edit" class="btn btn-sm btn-primary"><i class="fa fa-fw fa-pencil-alt"></i></a>
+                                        <form action="visitor/{{ $visitor->id }}" method="POST">
+                                            @method('delete')
+                                            @csrf
+                                            <button type="submit" class="btn btn-sm btn-warning show_confirm" style="display: inline-block; margin-left: -3px"><i class="fa fa-fw fa-trash"></i></button>
+                                        </form>
+
+                                    </div>
+                                </td>
                                 </td>
                             </tr>
                             @endforeach

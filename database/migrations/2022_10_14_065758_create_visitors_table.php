@@ -16,14 +16,16 @@ return new class extends Migration
         Schema::create('visitors', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('no_ticket');
+            $table->string('no_ticket')->unique();
             $table->foreignId('band_id');
-            $table->date('eventTime');
+            $table->date('event_time');
+            $table->string('class');
             $table->foreignId('province_id');
             $table->foreignId('regency_id');
             $table->foreignId('district_id');
             $table->foreignId('village_id');
-            $table->char('gender');
+            $table->string('gender');
+            $table->string('religion');
             $table->date('date_birth');
             $table->string('status');
             $table->timestamps();
