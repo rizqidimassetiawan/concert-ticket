@@ -28,8 +28,9 @@
     <!-- Stylesheets -->
     <!-- Fonts and OneUI framework -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
-    <link rel="stylesheet" id="css-main" href="{{ asset('assets/css/oneui.min.css') }}">
-
+   <link rel="stylesheet" id="css-main" href="{{ asset('assets/css/oneui.min.css') }}">
+    @stack('styles')
+  
   </head>
   <body>
    
@@ -60,6 +61,8 @@
 
     <!-- Page JS Code -->
     <script src="{{ asset('assets/js/pages/op_auth_signin.min.js') }}"></script>
+  
+    @stack('scripts')
   </body>
 </html>
 

@@ -43,7 +43,7 @@
                     </div>
                     <div class="block-content py-2 bg-body-light">
                         <p class="font-w600 font-size-sm text-warning mb-0">
-                            Telat <i class="fas fa-business-time"></i>
+                            Belum Konfirmasi <i class="fas fa-business-time"></i>
                         </p>
                     </div>
                 </a>
@@ -55,7 +55,7 @@
                     </div>
                     <div class="block-content py-2 bg-body-light">
                         <p class="font-w600 font-size-sm text-primary mb-0">
-                            Hadir <i class="fas fa-user-clock"></i>
+                            Terkonfirmasi<i class="fas fa-user-clock"></i>
                         </p>
                     </div>
                 </a>

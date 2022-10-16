@@ -1,16 +1,11 @@
 @extends('templates.app')
 
 @push('style')
-<link rel="stylesheet" type="text/css"
-    href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap4.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="{{ asset('')}}assets/css/thema-date.css">
 <link rel="stylesheet" type="text/css" href="{{ asset('')}}assets/css/thema-regis.css">
 <link rel="stylesheet" type="text/css" href="{{ asset('')}}assets/css/datedropper.css">
-<link rel="stylesheet" href="{{ asset('assets/js/plugins/datatables-bs5/dataTables.bootstrap5.min.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/js/plugins/datatables-buttons-bs5/buttons.bootstrap5.min.css') }}">
 
 <style>
     .select2-container--default .select2-selection--single .select2-selection__placeholder {
@@ -155,23 +150,23 @@
                                 <label for="staticEmail" class="col-sm-3 col-form-label end">Kelas dan Acara<small
                                         class="text-danger">*</small></label>
                                 <div class="col">
-                                    <select
-                                        class="js-example-basic-single-kelas form-control @error('class') is-invalid @enderror"
-                                        style="width: 89.1%" name="class">
-                                        
-                                        <option value="VIP" {{ old('class', $visitor->class ) == 'VIP' ?
-                                            'selected' : ''}}>VIP
-                                        </option>
-                                        <option value="Bisnis" {{ old('class', $visitor->class )=='Bisnis' ?
-                                            'selected' : '' }}>
-                                            Bisnis</option>
-                                        <option value="Ekonomi" {{ old('class', $visitor->class )=='Ekonomi' ?
-                                            'selected' : '' }}>
-                                            Ekonomi</option>
-                                    </select><br>
-                                    @error('religion')
-                                    <small class="text-danger">{{ $message }}</small>
-                                    @enderror
+                                <select
+                                    class="js-example-basic-single-kelas form-control @error('class') is-invalid @enderror"
+                                    style="width: 89.1%" name="class">
+                                    
+                                    <option value="VIP" {{ old('class', $visitor->class ) == 'VIP' ?
+                                        'selected' : ''}}>VIP
+                                    </option>
+                                    <option value="Bisnis" {{ old('class', $visitor->class )=='Bisnis' ?
+                                        'selected' : '' }}>
+                                        Bisnis</option>
+                                    <option value="Ekonomi" {{ old('class', $visitor->class )=='Ekonomi' ?
+                                        'selected' : '' }}>
+                                        Ekonomi</option>
+                                </select><br>
+                                @error('class')
+                                <small class="text-danger">{{ $message }}</small>
+                                @enderror
                                 </div>
                                 <div class="col">
                                     <div class="input-group">
@@ -372,10 +367,5 @@
 </script>
 
 <script src="{{ asset('')}}assets/js/plugins/datedropper/datedropper.js"></script>
-
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"></script>
-<script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap4.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap4.min.js"></script>
 
 @endpush

@@ -22,8 +22,10 @@ Route::middleware('guest')->group(function(){
     Route::controller(AuthController::class)->group(function(){
         Route::get('/admin','index')->name('login');
         Route::post('/login','authentication')->name('auth');
-    
-    Route::get('/',[BookingController::class,'index'])->name('home');   
+        Route::get('/success',[BookingController::class,'success'])->name('success');
+        Route::get('/',[BookingController::class,'index'])->name('home');   
+        Route::post('/booking',[BookingController::class,'booking'])->name('booking');   
+        Route::get('/cetak/{id}',[BookingController::class,'print'])->name('cetak');   
     });
 });
 Route::middleware('auth')->group(function(){
@@ -33,6 +35,7 @@ Route::middleware('auth')->group(function(){
    Route::put('/check-in/verify/{id}',[UniversalController::class,'verify'])->name('verify'); 
    Route::get('/visitor',[UniversalController::class,'search'])->name('search'); 
    Route::post('/logout',[AuthController::class,'logout'])->name('logout');
+
 });
 
     Route::controller(RegionController::class)->group(function(){
